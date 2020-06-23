@@ -14,8 +14,10 @@ console.log(soma(5, 2));
 
 // Recurso da função arrow - retorno implícito
 const subtracao = (a, b) => a - b
-
 console.log(subtracao(5, 2))
+
+const resultado = nota => nota >= 7 //como só tem um parâmetro 'nota', não precisa de áspas
+console.log(resultado(7))
 
 const imprimir2 = a => console.log(a)
 imprimir2('Javascript é show de bola!')
