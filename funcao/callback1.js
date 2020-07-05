@@ -13,3 +13,6 @@ fabricantes.forEach(fabricante => console.log(fabricante)) //mesma coisa, só tr
 
 
 console.log(fabricantes.filter(f => f.length > 3))
+
+const revF = fabricantes.reverse()
+console.log(revF)
