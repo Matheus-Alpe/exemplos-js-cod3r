@@ -7,3 +7,4 @@ function fatorial (numero) {
 }
 
 console.log(fatorial(10))
+console.log(fatorial(7))
