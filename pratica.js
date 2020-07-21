@@ -1,32 +1,23 @@
-function nome(x) {
-  const nome = []
-
-  const valor = x
-
-  for (let i = 0; i < valor.length; i++) {
-    nome[i] = valor.charAt(i)
+class Carro {
+  constructor(modelo){
+    this.modelo = modelo
   }
 
-  function rand(max) {
-    let valor = Math.random() * max
-    return Math.floor(valor)
-  }
-
-  function geraNomes() {
-    let n = ""
-    let i = []
-
-    for (let x in nome) {
-      let numero = rand(valor.length)
-      n += nome[numero]
-    }
-
-    return n
-  }
-
-  for (let x in nome) {
-    console.log(geraNomes())
+  getModelo() {
+    return this.modelo
   }
 }
 
-nome('Thiago')
+class Picape extends Carro {
+  constructor(modelo, velocidadeMax = 100){
+    super(modelo)
+    this.velMax = velocidadeMax
+  }
+
+  info() {
+    return `Modelo: ${super.getModelo()} | Velocidade Maxima: ${this.velMax}`
+  }
+}
+
+const ford = new Picape('Ford', 200)
+console.log(ford.info())
