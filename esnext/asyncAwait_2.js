@@ -32,4 +32,3 @@ async function gerarMegaSena(qtNumeros, tentativas = 1) {
 gerarMegaSena(15)
     .then(console.log)
     .catch(console.log)
-
