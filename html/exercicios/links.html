@@ -1,0 +1,27 @@
+<h1 id="inicio">Links</h1>
+
+<!-- URL Absoluta-->
+<a href="https://www.google.com.br">Google t: default=self</a><br>
+<a href="https://www.google.com.br" target="_blank">Google => t: _blank</a><br><br>
+
+<br>
+<!-- URL Relativa-->
+<a href="index.html">Voltar 1</a><br>
+<a href="/index.html">Voltar 2</a><br>
+<a href="../index.html">Voltar 2</a><br>
+
+<br>
+<!-- Link de email-->
+<a href="mailto:matttalves@gmail.com">Entre em contato</a><br><br>
+
+<!--Usando âncora-->
+    <!-- div#noticia - ele cria tag contendo a id como 'noticia'-->
+<div id="noticia" style="position: absolute;top: 2000px;">
+    <!--CSS inline - como chamam atribuir style dentro da tag-->
+    <!--DIV sempre vai ficar pra baixo, pq ela tem posição absoluta e tem comportamento diferente de outros elementos-->
+    <h1>Notícia Buemba!</h1>
+    <p>Não era nada...</p>
+    <a href="#inicio">Voltar para inicio</a>
+</div>
+
+<a href="#noticia">Ir para Notícia</a>

@@ -1,0 +1,68 @@
+<h1>Projeto</h1>
+
+<ul class="tree">
+    <li>
+        <span class="expand">Backend</span>
+        <ul>
+            <li>
+                <span class="expand">app</span>
+                <ul>
+                    <li>produto.js</li>
+                    <li>usuario.js</li>
+                    <li>venda.js</li>
+                </ul>
+            </li>
+            <li>
+                <span class="expand">config</span>
+                <ul>
+                    <li>banco.js</li>
+                    <li>rotas.js</li>
+                    <li>servidor.js</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <span class="expand">Frontend</span>
+        <ul>
+            <li>
+                <span class="expand">public</span>
+                <ul>
+                    <li>app.css</li>
+                    <li>app.js</li>
+                    <li>index.html</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<script>
+    //resposta do professor:
+    document.querySelectorAll('.expand').forEach(expander => {
+        expander.onclick = function (e) {
+            const ul = expander.nextElementSibling;
+            const dsp = ul.style.display;
+            ul.style.display = dsp === 'none' ? 'block' : 'none';
+        }
+    });
+    /* minha resposta:
+    <style>
+        ul li ul {
+            display: none;
+        }
+    </style>
+    document.querySelectorAll('.expand').forEach(expander => {
+        expander.onclick = function() {
+            const ul = this.parentElement.querySelectorAll('ul')[0]
+
+            if(ul.offsetHeight > 0){
+                ul.style.display = 'none'
+            } else {
+                ul.style.display = 'block'
+            }
+        }
+    })*/
+</script>
