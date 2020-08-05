@@ -26,3 +26,6 @@ console.log(algunsPilotos1)
 
 const algunsPilotos2 = pilotos.slice(1, 4)
 console.log(algunsPilotos2)
+
+let cc = '4556364607935616'
+console.log(cc.slice(0, cc.lengh - 4))
