@@ -1,0 +1,103 @@
+<sup>Exercicíos usam JS, executar no dominio: <a href="http://127.0.0.1:9090/exercicios/video.html"
+        target="_blank">http://127.0.0.1:9090/exercicios/video.html</a></sup>
+<br>
+<br>
+
+<video id="meuVideo" width="800" height="450">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Seu browser não suporta a tag de vídeo.
+</video>
+
+<nav id="controlesPlayer">
+    <div wm-progresso="meuVideo" id="barraPadrao">
+        <div id="barraProgresso"></div>
+    </div>
+    <div id="buttons">
+        <button wm-play="meuVideo" id="playButton">Play</button>
+        <button wm-pause="meuVideo">Pause</button>
+    </div>
+</nav>
+
+<script>
+    //resolução professor
+    function configurarVideo(id) {
+        const video = document.getElementById(id);
+        video.oncontextmenu = () => false;
+
+        document.querySelector(`[wm-play=${id}`).onclick = e => video.play();
+        document.querySelector(`[wm-pause=${id}`).onclick = e => video.pause();
+
+        setInterval(() => {
+            const percentual = (video.currentTime / video.duration) * 100;
+            const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`);
+            valorDiv.style.width = `${percentual}%`;
+            valorDiv.innerHTML = `${percentual.toFixed(1)}%`;
+        }, 500);
+    }
+
+    configurarVideo('meuVideo');
+
+
+    /* // Minha resolução
+    let myMovie = document.getElementById('meuVideo');
+    let playButton = document.getElementById('playButton');
+    let bar = document.getElementById('barraPadrao')
+    let progressBar = document.getElementById('barraProgresso');
+    let barSize = 600;
+
+    playButton.addEventListener('click', playOrPause, false);
+    bar.addEventListener('click', clickedBar, false);
+
+    let updateBar;
+
+    function playOrPause() {
+        if (!myMovie.paused && !myMovie.ended) {
+            myMovie.pause();
+            playButton.innerHTML = 'Play';
+            window.clearInterval(updateBar);
+        } else {
+            myMovie.play();
+            playButton.innerHTML = 'Pause';
+            updateBar = setInterval(update, 500);
+        }
+    }
+
+    function update() {
+        if (!myMovie.ended) {
+            let size = parseInt(myMovie.currentTime * barSize / myMovie.duration);
+            progressBar.style.width = size + 'px';
+        } else {
+            progressBar.style.width = '0px';
+            playButton.innerHTML = 'Play';
+            window.clearInterval(updateBar);
+        }
+    }
+
+    function clickedBar(e) {
+        let mouseX = e.pageX - bar.offsetLeft;
+        let newtime = mouseX * myMovie.duration / barSize;
+        myMovie.currentTime = newtime;
+        progressBar.style.width = mouseX + 'px';
+
+    }*/
+</script>
+
+
+
+<style>
+    #barraPadrao {
+        height: 20px;
+        width: 600px;
+        border: solid 1px #444;
+        margin: 10px;
+    }
+
+    #barraPadrao>div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0px;
+    }
+</style>

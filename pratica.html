@@ -6,51 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prática</title>
     <style>
-        #cabeca{
-            font-family: initial;
+        body {
+            margin: 0px;
+            padding: 0px;
         }
-        #corpo {
-            padding: 10px;
-            background-color: tomato;
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #FF0;
+            transition: width 2s, height 2s, transform 2s;
         }
-        #messagem {
-            text-align: center;
-            padding-top: 10%;
-            font-size: 100px;
-        }
-        #chatTexto {
-            background-color: darkgray;
-            position: absolute;
-            bottom: 0px;
-            right: 0;
+
+        div:hover {
+            width: 600px;
+            height: 600px;
+            background-color: #AD310B;
+            transform: rotate(180deg);
         }
     </style>
 </head>
 
 <body>
-    <header id="cabeca">
-        <h1>Logo</h1>
-        <nav>
-            <a href="http://www.google.com.br/" target="_blank">Google</a>
-            <a href="http://www.facebook.com.br" target="_blank">Facebook</a>
-        </nav>
-    </header>
-    <div id="corpo">
-        <select name="Nomes" id="">
-            <option value="F">Feminino</option>
-            <option value="M">Masculino</option>
-        </select>
-    </div>
-    <section id="messagem"></section>
-    <textarea name="" id="chatTexto" cols="100"rows="10"></textarea>
+    <div></div>
     <script>
-        const boxMessagem = document.getElementById('messagem')
-        const caixaTexto = document.getElementById('chatTexto')
-        caixaTexto.onkeypress= e => {
-            if(e.key === 'Enter'){
-                boxMessagem.innerHTML = caixaTexto.value
-            }
-        }
+
     </script>
 </body>
 
