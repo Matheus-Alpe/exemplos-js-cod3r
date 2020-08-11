@@ -6,32 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prática</title>
     <style>
-        body {
-            margin: 0px;
-            padding: 0px;
-        }
-
         div {
-            width: 100px;
-            height: 100px;
-            background-color: #FF0;
-            transition: width 2s, height 2s, transform 2s;
+            background-color: teal;
+            display: flexbox;
         }
 
-        div:hover {
-            width: 600px;
-            height: 600px;
-            background-color: #AD310B;
-            transform: rotate(180deg);
+        span {
+            display: block;
+        }
+
+        .diferente {
+            font-weight: bold;
+            font-size: 30px;
+            color: chocolate;
         }
     </style>
 </head>
 
 <body>
-    <div></div>
-    <script>
+    <div>Área 1</div>
+    <div>Área 2</div>
 
-    </script>
+    <p>
+        Esse é um texto com <span class="diferente">muitas palavras</span> e ponto.
+    </p>
+
+
 </body>
 
 </html>
