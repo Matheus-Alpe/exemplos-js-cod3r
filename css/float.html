@@ -9,20 +9,42 @@
             background-color: #222;
         }
 
+        div {
+            height: 150px;
+            width: 150px;
+        }
+/*nth-child(odd) -> pegando elementos impares */
+        div:nth-child(odd){
+            clear: both;
+            float: right;
+        }
+        div:nth-child(even){
+            clear: both;
+            float: left;
+        }
+
         .c1 {
             background-color: red;
+            /* clear: both;
+            float: right; */
         }
 
         .c2 {
             background-color: green;
+            /* clear: both;
+            float: left; */
         }
-        
+
         .c3 {
             background-color: blue;
+            /* clear: both;
+            float: right; */
         }
 
         .c4 {
             background-color: orange;
+            /* clear: both;
+            float: left; */
         }
     </style>
 </head>
