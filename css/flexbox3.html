@@ -6,7 +6,33 @@
     <title>Flexbox #03</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        .flex-container div {
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+            /*default direction: row*/
+            /* flex-direction: column; */
+        }
+
+        .flex-container div {
+            /*aplica no main axis, seja row ou column*/
+            flex-basis: 100px;
+            /*se o main axis for row, width é disconsiderado
+            mas quando for column, aplica o width*/
+            width: 200px;
+        }
+
+        .flex-container div:nth-child(4) {
+            /*propriedade shortcut - grow shrink basis*/
+            flex: 3 6 100px;
+        }
+
+        .flex-container {
+            width: 300px;
+            width: 600px;
+        }
     </style>
 </head>
 
