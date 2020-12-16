@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br' alt="site da cod3r">Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const img = document.querySelector('img');
+        console.log('img -> getAttribute =', img.getAttribute('src'));
+        console.log('img -> src =', img.src);
+        console.log('img -> ["src"] =', img['src']);
+        console.log('img -> alt =', img.alt);
+        console.log('img -> getAttributesName =', img.getAttributeNames());
+
+        console.log('Elemento "img"...............');
+        console.log('img -> NodeType =', img.nodeType);
+        console.log('img -> NodeName =', img.nodeName);
+        console.log('img -> NodeValue =', img.nodeValue);
+
+
+        console.log('Elemento "link"...............');
+        const link = document.querySelector('a');
+        console.log('link -> href =', link.href);
+        console.log('link -> firstChild.nodeType =', link.firstChild.nodeType);
+        //3 formas pra alterar o texto dentro da tag
+        link.firstChild.nodeValue = 'Texto 1';
+        link.innerHTML = 'Texto 2'
+        link.innerText = 'Texto 3'
+
+    </script>
+</body>
+
+</html>

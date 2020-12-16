@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5" data-bebidas="café água copo-descartável">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        function log(...messages) {
+            messages.forEach(message => console.log(message));
+        }
+
+
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        log('Elemento "ul"...................');
+        log('lista -> childNodes =', lista.childNodes);
+        //propriedades personalizadas só podem ser acessadas pelo getAttribute
+        log('lista.destino -> getAttribute =', lista.getAttribute('destino'));
+        log('lista -> hasAttribute', lista.hasAttribute('destino'));
+
+        lista.setAttribute('destino', 'empresa');
+        log('lista.destino -> getAttribute =', lista.getAttribute('destino'));
+
+        log('lista.status -> getAttribute =', lista.getAttribute('status'));
+        lista.setAttribute('status', 'aberto');
+        log('lista.status -> getAttribute =', lista.getAttribute('status'));
+
+        lista.removeAttribute('destino')
+        log('lista.destino -> getAttribute =', lista.getAttribute('destino'));
+
+        /*
+        DATASET é importante, atributos personalizados devem começar com 'data-' 
+        para que o dataset reconheça
+        */
+        log(lista.dataset)
+        log(lista.dataset.urgencia)
+        lista.dataset.urgencia = 4
+        log(lista.dataset.urgencia)
+        log(lista.dataset.bebidas)
+
+        log(lista.getAttribute('data-urgencia'))
+
+        // cuidado
+        const label = document.querySelector('label')
+        log(label.for) //undefined
+        log(label.htmlFor) //forma correta
+        log(label.getAttribute('for'))
+    </script>
+</body>
+
+</html>

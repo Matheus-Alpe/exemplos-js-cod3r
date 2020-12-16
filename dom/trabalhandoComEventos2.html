@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>Elemento</div>
+    <div>Elemento</div>
+    <script>
+        document.querySelectorAll('div').forEach(function(item) {
+            item.style.position = 'absolute';
+            item.style.userSelect = 'none'; //desativa o selecionamento
+
+            item.onmousemove = e => {
+                const elementItem = e.target //própria div
+                
+                item.style.cursor = 'move'
+                if (e.buttons) {
+                    elementItem.style.top = `${e.clientY - (elementItem.clientHeight / 2)}px`
+                    elementItem.style.left = `${e.clientX - (elementItem.clientWidth / 2)}px`
+                }
+            }
+        })
+    </script>
+</body>
