@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>XMLHttpRequest #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        function ajax(config) {
+            const xhr = new XMLHttpRequest();
+            //open(methodHTTP, URL, async ? booleano)
+            xhr.open(config.metodo, config.url, true); //true é pra definir a requisição assincrona
+
+            xhr.onload = e => {
+                if (xhr.status === 200) {
+                    config.sucesso(xhr.response);
+                } else if (xhr.status >= 400) {
+                    config.erro({
+                        codigoStatus: xhr.status,
+                        texto: xhr.statusText
+                    });
+                }
+            }
+
+            xhr.send();
+        }
+
+        ajax({
+            url: "dados/estados.json",
+            metodo: "GET",
+            sucesso(resposta) {
+                const estados = JSON.parse(resposta);
+
+                //array de elementos TD criados pela função
+                const linhas = estados.map(estado => criaLinhaCadaEstado(estado));
+
+                //elemento table criado pela função
+                const table = criaTabelaEstados(linhas);
+
+                document.body.appendChild(table);
+            },
+            erro(erro) {
+                const msg = document.createTextNode(`${erro.codigoStatus}: ${erro.texto}`);
+                document.body.appendChild(msg);
+            }
+        });
+
+        function criaLinhaCadaEstado(estado) {
+            const tdId = document.createElement('td');
+            tdId.innerHTML = estado.id;
+            
+            const tdNome = document.createElement('td');
+            tdNome.innerHTML = estado.nome;
+
+            const tdSigla = document.createElement('td');
+            tdSigla.innerHTML = estado.sigla;
+
+            const tr = document.createElement('tr');
+            tr.appendChild(tdId);
+            tr.appendChild(tdNome);
+            tr.appendChild(tdSigla);
+
+            return tr;
+        }
+
+        function criaTabelaEstados(linhasEstados) {
+            const table = document.createElement('table');
+            linhasEstados.forEach(tdElement => {
+                table.appendChild(tdElement);
+            });
+            return table;
+        }
+    </script>
+</body>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">get data</button>
+    <script>
+        function ajax(config) {
+            const xhr = new XMLHttpRequest();
+            xhr.open(config.method, config.url, true);
+
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200) config.resolve(this.response);
+                    else if (this.status >= 400) {
+                        config.reject({
+                            code: this.status,
+                            text: this.statusText
+                        });
+                    }
+                }
+            }
+
+            xhr.send();
+        }
+
+        const req = {
+            url: "https://frontend-intern-challenge-api.iurykrieger.now.sh/products?page=1",
+            method: "get",
+            resolve(response) {
+                const responseJSON = JSON.parse(response);
+                console.log(this.url)
+                this.url = `https://${responseJSON.nextPage}`;
+                console.log(responseJSON.products.length)
+                responseJSON.products.forEach(product => console.log(product))
+            },
+            reject(response) {
+                console.log(`${response.code}:${response.text}`);
+            }
+        }
+
+        ajax(req);
+
+        document.getElementById('btn').onclick = function(e) {
+            ajax(req);
+        }
+    </script>
+</body>
+
+</html>
