@@ -1,0 +1,8 @@
+//referenciando arquivo do bootstrap no node-modules
+@import "~bootstrap/scss/bootstrap";
+
+//rescrevendo a variavel do font-awesome da pasta node-modules
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
+@import "custom";
