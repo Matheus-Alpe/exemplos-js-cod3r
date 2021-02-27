@@ -1,10 +1,11 @@
 import React from 'react'
 import './NavItem.css'
+import { Link } from 'react-router-dom'
 
 const NavItem = props =>
-    <a className="menu-link" href={props.pathAPI}>
+    <Link to={props.pathAPI} className="menu-link" >
         <i className={`fa fa-${props.icon}`}></i> {props.label}
-    </a>
+    </Link>
 
 
 export default NavItem
