@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+    <div id="app">
+        <p>{{ link }}</p>
+        <a :href="link" target="_blank">Google</a>
+        <div>
+            <input type="text" v-model="nome">
+            <p>{{ nome }}</p>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                nome: 'Maria',
+                link: 'https://www.google.com.br'
+            },
+            watch: {
+                nome(novoNome) {
+                    console.log(novoNome)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

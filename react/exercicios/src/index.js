@@ -1,5 +1,5 @@
 import React from 'react'
-import ReacDOM from 'react-dom'
+import ReactDOM from 'react-dom'
 
 //componentes precisam ser nomeado com letra Maiscula no inicio
 import Saudacao from './components/Saudacao'
@@ -7,7 +7,7 @@ import Pai from './components/Pai'
 import Filho from './components/Filho'
 // import BoaMadrugada, { BoaTarde, BoaNoite} from './components/Multiplos'
 
-ReacDOM.render(
+ReactDOM.render(
     <div>
         <Saudacao nome="Matheus" tipo="Bom dia"/>
         <hr/>
